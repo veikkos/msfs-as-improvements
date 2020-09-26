@@ -57,7 +57,7 @@ class AS530_VorInfos extends NavSystemElement {
         if (SimVar.GetSimVarValue("NAV HAS DME:1", "bool")) {
             const distance = SimVar.GetSimVarValue("NAV DME:1", "Nautical Miles");
             const distanceFixed = distance.toFixed(1);
-            Avionics.Utils.diffAndSet(this.dis, distanceFixed < 10.0 ? distanceFixed : Math.round(distance));
+            Avionics.Utils.diffAndSet(this.dis, distanceFixed < 100.0 ? distanceFixed : Math.round(distance));
         } else {
             Avionics.Utils.diffAndSet(this.dis, "__._");
         }
