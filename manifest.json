@@ -1,0 +1,21 @@
+{
+    "dependencies": [
+        {
+            "name": "asobo-vcockpits-instruments-navsystems",
+            "package_version": "0.1.13"
+        }
+    ],
+    "content_type": "CORE",
+    "title": "",
+    "manufacturer": "",
+    "creator": "veikkos",
+    "package_version": "0.1.44",
+    "minimum_game_version": "1.8.3",
+    "release_notes": {
+        "neutral": {
+            "LastUpdate": "",
+            "OlderHistory": ""
+        }
+    },
+    "total_package_size": "00000000000000004212"
+}
