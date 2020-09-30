@@ -692,6 +692,8 @@ class GPS_AirportWaypointLocation extends NavSystemElement {
             this.positionEW.textContent = this.gps.longitudeFormat(infos.coordinates.long);
             if (infos.coordinates.alt) {
                 this.elev.textContent = fastToFixed(infos.coordinates.alt, 0);
+            } else if (infos.runways && infos.runways[0] && infos.runways[0].elevation) {
+                this.elev.textContent = fastToFixed(infos.runways[0].elevation * 3.2808399, 0);
             }
             this.fuel.textContent = infos.fuel;
             this.bestApproach.textContent = infos.bestApproach;
