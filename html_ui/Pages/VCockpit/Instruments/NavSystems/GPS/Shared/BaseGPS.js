@@ -1392,36 +1392,9 @@ class GPS_NearestAirports extends NavSystemElement {
         for (var i = 0; i < this.nearestAirportList.airports.length; i++) {
             var firstLine = "";
             var secondLine = "";
-            var logo = "";
-            if (this.nearestAirportList.airports[i].airportClass == 2 || this.nearestAirportList.airports[i].airportClass == 3) {
-                logo = "Airport_Soft.bmp";
-            }
-            else if (this.nearestAirportList.airports[i].airportClass == 1) {
-                switch (Math.round((this.nearestAirportList.airports[i].longestRunwayDirection % 180) / 45.0)) {
-                    case 0:
-                    case 4:
-                        logo = "Airport_Hard_NS.bmp";
-                        break;
-                    case 1:
-                        logo = "Airport_Hard_NE_SW.bmp";
-                        break;
-                    case 2:
-                        logo = "Airport_Hard_EW.bmp";
-                        break;
-                    case 3:
-                        logo = "Airport_Hard_NW_SE.bmp";
-                        break;
-                }
-            }
-            else if (this.nearestAirportList.airports[i].airportClass == 4) {
-                logo = "Helipad.bmp";
-            }
-            else if (this.nearestAirportList.airports[i].airportClass == 5) {
-                logo = "Private_Airfield.bmp";
-            }
+            const logo = this.nearestAirportList.airports[i].imageFileName();
             firstLine += '<td class="SelectableElement">' + this.nearestAirportList.airports[i].ident + '</td>';
-            firstLine += '<td></td>'; // Image assets seem to be missing
-            //firstLine += '<td><img src="/Pages/VCockpit/Instruments/NavSystems/Shared/Images/GPS/' + logo + '" class="imgSizeS"/> </td>';
+            firstLine += '<td><img src="/Pages/VCockpit/Instruments/Shared/Map/Images/' + logo + '" class="imgSizeS"/> </td>';
             firstLine += '<td>' + fastToFixed(this.nearestAirportList.airports[i].bearing, 0) + '<div class="Align unit">o<br />M</div></td>';
             firstLine += '<td>' + fastToFixed(this.nearestAirportList.airports[i].distance, 1) + '<div class="Align unit">n<br />m</div></td>';
             firstLine += '<td>' + this.nearestAirportList.airports[i].bestApproach + '</td>';

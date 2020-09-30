@@ -6,6 +6,6 @@ Currently fixing
     - After fix
         - No decimals if >= 100 nm
         - Single decimal if < 100 nm
-- Blinking Nearest Airports page on Garmin GNS 530/430
+- Blinking Nearest Airports page on Garmin GNS 530/430 by adding working Airport logos from G1000
 
 ![DME decimal fix](https://raw.githubusercontent.com/veikkos/msfs-as-improvements/master/dme-decimal.png)
