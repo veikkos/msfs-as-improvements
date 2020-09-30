@@ -802,64 +802,19 @@ class GPS_AirportWaypointRunways extends NavSystemElement {
             this.widthElement.textContent = fastToFixed(infos.runways[this.selectedRunway].width, 0);
             switch (infos.runways[this.selectedRunway].surface) {
                 case 0:
-                    this.surfaceElement.textContent = "Unknown";
-                    break;
-                case 1:
                     this.surfaceElement.textContent = "Concrete";
                     break;
-                case 2:
-                    this.surfaceElement.textContent = "Asphalt";
-                    break;
-                case 101:
+                case 1:
                     this.surfaceElement.textContent = "Grass";
                     break;
-                case 102:
-                    this.surfaceElement.textContent = "Turf";
+                case 4:
+                    this.surfaceElement.textContent = "Asphalt";
                     break;
-                case 103:
+                case 12:
                     this.surfaceElement.textContent = "Dirt";
                     break;
-                case 104:
-                    this.surfaceElement.textContent = "Coral";
-                    break;
-                case 105:
-                    this.surfaceElement.textContent = "Gravel";
-                    break;
-                case 106:
-                    this.surfaceElement.textContent = "Oil Treated";
-                    break;
-                case 107:
-                    this.surfaceElement.textContent = "Steel";
-                    break;
-                case 108:
+                case 17:
                     this.surfaceElement.textContent = "Bituminus";
-                    break;
-                case 109:
-                    this.surfaceElement.textContent = "Brick";
-                    break;
-                case 110:
-                    this.surfaceElement.textContent = "Macadam";
-                    break;
-                case 111:
-                    this.surfaceElement.textContent = "Planks";
-                    break;
-                case 112:
-                    this.surfaceElement.textContent = "Sand";
-                    break;
-                case 113:
-                    this.surfaceElement.textContent = "Shale";
-                    break;
-                case 114:
-                    this.surfaceElement.textContent = "Tarmac";
-                    break;
-                case 115:
-                    this.surfaceElement.textContent = "Snow";
-                    break;
-                case 116:
-                    this.surfaceElement.textContent = "Ice";
-                    break;
-                case 201:
-                    this.surfaceElement.textContent = "Water";
                     break;
                 default:
                     this.surfaceElement.textContent = "Unknown";
