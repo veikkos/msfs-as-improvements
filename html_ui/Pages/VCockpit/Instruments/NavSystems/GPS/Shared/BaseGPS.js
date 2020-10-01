@@ -1280,17 +1280,22 @@ class GPS_VORWaypoint extends NavSystemElement {
             this.facilityElement.textContent = infos.name;
             this.cityElement.textContent = infos.city;
             this.regionElement.textContent = infos.region;
-            this.latitudeElement.textContent = this.gps.latitudeFormat(infos.coordinates.lat);
-            this.longitudeElement.textContent = this.gps.longitudeFormat(infos.coordinates.long);
-            this.frequencyElement.textContent = fastToFixed(infos.frequencyMHz, 2);
+            const lat = infos.coordinates.lat ? this.gps.latitudeFormat(infos.coordinates.lat) : ""
+            const long = infos.coordinates.long ? this.gps.latitudeFormat(infos.coordinates.long) : ""
+            this.latitudeElement.textContent = lat;
+            this.longitudeElement.textContent = long;
+            const frequency = infos.frequencyMHz ? fastToFixed(infos.frequencyMHz, 2) : "";
+            this.frequencyElement.textContent = frequency;
             if (infos.weatherBroadcast == 2) {
                 this.weatherBroadcastElement.textContent = "Wx Brdcst";
             }
             else {
                 this.weatherBroadcastElement.textContent = "";
             }
-            var magVar = infos.magneticVariation;
-            if (infos.magneticVariation > 0) {
+            const magVar = infos.magneticVariation;
+            if (magVar === undefined) {
+                this.magneticDeviationElement.textContent = "";
+            } else if (magVar > 0) {
                 this.magneticDeviationElement.textContent = 'W' + fastToFixed(magVar, 0) + "°";
             }
             else {
