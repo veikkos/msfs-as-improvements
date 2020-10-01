@@ -665,9 +665,9 @@ class GPS_AirportWaypointLocation extends NavSystemElement {
         this.icaoSearchField.Update();
         var infos = this.icaoSearchField.getUpdatedInfos();
         if (infos && infos.icao) {
-            var logo = infos.GetSymbol();
+            var logo = infos.imageFileName();
             if (logo != "") {
-                this.privateLogo.innerHTML = '<img src="/Pages/VCockpit/Instruments/NavSystems/Shared/Images/' + logo + '"/>';
+                this.privateLogo.innerHTML = '<img src="/Pages/VCockpit/Instruments/Shared/Map/Images/' + logo + '" class="imgSizeM" style="vertical-align:bottom"/>';
             }
             switch (infos.privateType) {
                 case 0:
@@ -779,9 +779,9 @@ class GPS_AirportWaypointRunways extends NavSystemElement {
             var nmPixelSize = Math.min(130 / size.x, 110 / size.y);
             var context = this.mapElement.getContext("2d");
             context.clearRect(0, 0, 200, 200);
-            var logo = infos.GetSymbol();
+            var logo = infos.imageFileName();
             if (logo != "") {
-                this.privateLogoElement.innerHTML = '<img src="/Pages/VCockpit/Instruments/NavSystems/Shared/Images/' + logo + '"/>';
+                this.privateLogoElement.innerHTML = '<img src="/Pages/VCockpit/Instruments/Shared/Map/Images/' + logo + '" class="imgSizeM" style="vertical-align:bottom"/>';
             }
             switch (infos.privateType) {
                 case 0:
@@ -915,9 +915,9 @@ class GPS_AirportWaypointFrequencies extends NavSystemElement {
         this.icaoSearchField.Update();
         var infos = this.icaoSearchField.getUpdatedInfos();
         if (infos && infos.icao) {
-            var logo = infos.GetSymbol();
+            var logo = infos.imageFileName();
             if (logo != "") {
-                this.logoElement.innerHTML = '<img src="/Pages/VCockpit/Instruments/NavSystems/Shared/Images/' + logo + '"/>';
+                this.logoElement.innerHTML = '<img src="/Pages/VCockpit/Instruments/Shared/Map/Images/' + logo + '" class="imgSizeM" style="vertical-align:bottom"/>';
             }
             switch (infos.privateType) {
                 case 0:
@@ -1011,9 +1011,9 @@ class GPS_AirportWaypointApproaches extends NavSystemElement {
         this.icaoSearchField.Update();
         var infos = this.icaoSearchField.getUpdatedInfos();
         if (infos && infos.icao) {
-            var logo = infos.GetSymbol();
+            var logo = infos.imageFileName();
             if (logo != "") {
-                this.privateLogoElement.innerHTML = '<img src="/Pages/VCockpit/Instruments/NavSystems/Shared/Images/' + logo + '"/>';
+                this.privateLogoElement.innerHTML = '<img src="/Pages/VCockpit/Instruments/Shared/Map/Images/' + logo + '" class="imgSizeM" style="vertical-align:bottom"/>';
             }
             switch (infos.privateType) {
                 case 0:
