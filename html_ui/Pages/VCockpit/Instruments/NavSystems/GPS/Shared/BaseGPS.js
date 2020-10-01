@@ -1350,13 +1350,19 @@ class GPS_NearestAirports extends NavSystemElement {
             var firstLine = "";
             var secondLine = "";
             const logo = this.nearestAirportList.airports[i].imageFileName();
+            const frequencyName = this.nearestAirportList.airports[i].frequencyName ?
+                this.nearestAirportList.airports[i].frequencyName :
+                "___";
+            const frequency = this.nearestAirportList.airports[i].frequencyMHz ?
+                this.nearestAirportList.airports[i].frequencyMHz.toFixed(3) :
+                "___.___";
             firstLine += '<td class="SelectableElement">' + this.nearestAirportList.airports[i].ident + '</td>';
             firstLine += '<td><img src="/Pages/VCockpit/Instruments/Shared/Map/Images/' + logo + '" class="imgSizeS"/> </td>';
             firstLine += '<td>' + fastToFixed(this.nearestAirportList.airports[i].bearing, 0) + '<div class="Align unit">o<br />M</div></td>';
             firstLine += '<td>' + fastToFixed(this.nearestAirportList.airports[i].distance, 1) + '<div class="Align unit">n<br />m</div></td>';
             firstLine += '<td>' + this.nearestAirportList.airports[i].bestApproach + '</td>';
-            secondLine += '<td>' + this.nearestAirportList.airports[i].frequencyName + '</td>';
-            secondLine += '<td colspan="2" class="SelectableElement">' + fastToFixed(this.nearestAirportList.airports[i].frequencyMHz, 3) + '</td>';
+            secondLine += '<td>' + frequencyName + '</td>';
+            secondLine += '<td colspan="2" class="SelectableElement">' + frequency + '</td>';
             secondLine += '<td>rwy</td>';
             secondLine += '<td>' + fastToFixed(this.nearestAirportList.airports[i].longestRunwayLength, 0) + '<div class="Align unit">f<br />t</div></td>';
             secondLine += "</tr>";

@@ -12,5 +12,6 @@ Currently fixing for GNS 430/530
 - Fix missing airport icon in Waypoint pages
 - Fallback to runway altitude in Waypoint page for airport altitude
 - Fix most runway types seen as "Unknown"
+- Fix some formatting errors on Nearest Airports page
 
 ![DME decimal fix](https://raw.githubusercontent.com/veikkos/msfs-as-improvements/master/dme-decimal.png)
