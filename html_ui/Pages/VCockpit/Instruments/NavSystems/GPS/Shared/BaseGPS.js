@@ -1286,7 +1286,7 @@ class GPS_VORWaypoint extends NavSystemElement {
             const long = infos.coordinates.long ? this.gps.latitudeFormat(infos.coordinates.long) : ""
             this.latitudeElement.textContent = lat;
             this.longitudeElement.textContent = long;
-            const frequency = infos.frequencyMHz ? fastToFixed(infos.frequencyMHz, 2) : "";
+            const frequency = !isNaN(infos.frequencyMHz) ? infos.frequencyMHz.toFixed(2) : "";
             this.frequencyElement.textContent = frequency;
             if (infos.weatherBroadcast == 2) {
                 this.weatherBroadcastElement.textContent = "Wx Brdcst";
