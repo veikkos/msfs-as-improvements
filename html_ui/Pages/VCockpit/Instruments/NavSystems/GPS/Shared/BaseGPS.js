@@ -1275,9 +1275,9 @@ class GPS_VORWaypoint extends NavSystemElement {
         this.icaoSearchField.Update();
         var infos = this.icaoSearchField.getUpdatedInfos();
         if (infos && infos.icao) {
-            var logo = infos.GetSymbol();
+            const logo = infos.imageFileName();
             if (logo != "") {
-                this.symbolElement.innerHTML = '<img src="/Pages/VCockpit/Instruments/NavSystems/Shared/Images/' + logo + '"/>';
+                this.symbolElement.innerHTML = '<img src="/Pages/VCockpit/Instruments/Shared/Map/Images/' + logo + '" class="imgSizeM" style="vertical-align:bottom"/>';
             }
             this.facilityElement.textContent = infos.name;
             this.cityElement.textContent = infos.city;

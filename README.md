@@ -14,6 +14,6 @@ Currently fixing for GNS 430/530
 - Fix most runway types seen as "Unknown"
 - Fix some formatting errors on Nearest Airports page
 - Allow selecting VOR frequency in VOR Waypoint page
-- Fix invalid values seen on VOR Waypoint page
+- Fix invalid temporal values and missing logo on VOR Waypoint page
 
 ![DME decimal fix](https://raw.githubusercontent.com/veikkos/msfs-as-improvements/master/dme-decimal.png)
