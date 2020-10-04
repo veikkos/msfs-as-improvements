@@ -13,5 +13,7 @@ Currently fixing for GNS 430/530
 - Fallback to runway altitude in Waypoint page for airport altitude
 - Fix most runway types seen as "Unknown"
 - Fix some formatting errors on Nearest Airports page
+- Allow selecting VOR frequency in VOR Waypoint page
+- Fix invalid values seen on VOR Waypoint page
 
 ![DME decimal fix](https://raw.githubusercontent.com/veikkos/msfs-as-improvements/master/dme-decimal.png)
