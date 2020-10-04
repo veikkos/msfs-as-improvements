@@ -1257,11 +1257,13 @@ class GPS_VORWaypoint extends NavSystemElement {
         this.latitudeElement = this.gps.getChildById("VORLatitude");
         this.longitudeElement = this.gps.getChildById("VORLongitude");
         this.frequencyElement = this.gps.getChildById("VORFrequency");
+        this.frequencyElement.className = "SelectableElement Align";
         this.weatherBroadcastElement = this.gps.getChildById("VORWeatherBroadcast");
         this.magneticDeviationElement = this.gps.getChildById("VORMagneticDeviation");
         this.icaoSearchField = new SearchFieldWaypointICAO(this.gps, [this.identElement], this.gps, 'V');
         this.defaultSelectables = [
-            new SelectableElement(this.gps, this.identElement, this.ident_SelectionCallback.bind(this))
+            new SelectableElement(this.gps, this.identElement, this.ident_SelectionCallback.bind(this)),
+            new SelectableElement(this.gps, this.frequencyElement, this.frequency_SelectionCallback.bind(this))
         ];
     }
     onEnter() {
@@ -1326,6 +1328,14 @@ class GPS_VORWaypoint extends NavSystemElement {
             this.gps.currentSearchFieldWaypoint = this.icaoSearchField;
             this.icaoSearchField.StartSearch();
             this.gps.SwitchToInteractionState(3);
+        }
+    }
+    frequency_SelectionCallback(_event) {
+        if (_event == "ENT_Push") {
+            const infos = this.icaoSearchField.getUpdatedInfos();
+            if (infos && !isNaN(infos.frequencyMHz)) {
+                SimVar.SetSimVarValue("K:NAV" + this.gps.navIndex + "_STBY_SET_HZ", "Hz", infos.frequencyMHz * 1000000);
+            }
         }
     }
 }
