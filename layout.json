@@ -1,6 +1,11 @@
 {
     "content": [
         {
+            "path": "html_ui/Pages/VCockpit/Instruments/NavSystems/GPS/AS530/AS530.html",
+            "size": 57904,
+            "date": 132458674000220746
+        },
+        {
             "path": "html_ui/Pages/VCockpit/Instruments/NavSystems/GPS/AS530/AS530.js",
             "size": 4154,
             "date": 132457929881673326
@@ -8,7 +13,7 @@
         {
             "path": "html_ui/Pages/VCockpit/Instruments/NavSystems/GPS/Shared/BaseGPS.js",
             "size": 119990,
-            "date": 132462999996981898
+            "date": 132463801471421518
         }
     ]
 }

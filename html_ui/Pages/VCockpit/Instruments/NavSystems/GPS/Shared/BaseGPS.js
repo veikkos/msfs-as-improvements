@@ -30,6 +30,9 @@ class BaseGPS extends NavSystem {
         this.selectArrivalPage.setGPS(this);
         this.selectDeparturePage = new NavSystemElementContainer("DepartureSelection", "DepartureSelection", new GPS_DepartureSelection());
         this.selectDeparturePage.setGPS(this);
+        Include.addScript("/JS/debug.js", function () {
+            g_modDebugMgr.AddConsole(null);
+        });
     }
     parseXMLConfig() {
         super.parseXMLConfig();
@@ -758,6 +761,7 @@ class GPS_AirportWaypointRunways extends NavSystemElement {
         this.surfaceElement = this.gps.getChildById("APTRwySurface");
         this.lightingElement = this.gps.getChildById("APTRwyLighting");
         this.mapElement = this.gps.getChildById("APTRwyMap");
+        this.mapElement.init();
         this.selectedRunway = 0;
         this.defaultSelectables = [
             new SelectableElement(this.gps, this.identElement, this.searchField_SelectionCallback.bind(this)),
@@ -775,10 +779,6 @@ class GPS_AirportWaypointRunways extends NavSystemElement {
         this.icaoSearchField.Update();
         var infos = this.icaoSearchField.getUpdatedInfos();
         if (infos && infos.icao) {
-            var size = infos.GetSize();
-            var nmPixelSize = Math.min(130 / size.x, 110 / size.y);
-            var context = this.mapElement.getContext("2d");
-            context.clearRect(0, 0, 200, 200);
             var logo = infos.imageFileName();
             if (logo != "") {
                 this.privateLogoElement.innerHTML = '<img src="/Pages/VCockpit/Instruments/Shared/Map/Images/' + logo + '" class="imgSizeM" style="vertical-align:bottom"/>';
@@ -836,6 +836,14 @@ class GPS_AirportWaypointRunways extends NavSystemElement {
                 case 4:
                     this.lightingElement.textContent = "Frequency";
                     break;
+            }
+            if (infos.coordinates && this.mapElement) {
+                console.log('set', infos.runways[this.selectedRunway].coordinates);
+                this.mapElement.setCenter(infos.coordinates);
+                this.mapElement.setNavMapCenter(infos.coordinates);
+                this.mapElement.setZoom(1);
+                this.mapElement.update();
+                this.mapElement.refreshDisplay();
             }
         }
         else {
